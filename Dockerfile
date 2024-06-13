@@ -1,5 +1,6 @@
 FROM node:10.15.2
 
+RUN echo "deb http://archive.debian.org/debian stretch main" > /etc/apt/sources.list
 RUN apt-get -y update
 RUN apt-get -y upgrade
 RUN apt-get install -y sqlite3 libsqlite3-dev
@@ -14,8 +15,6 @@ RUN cd client && yarn build
 
 ENV DATABASE_FILE_PATH=/db/db.sqlite
 
-ENV PORT=3000
-ENV NODE_ENV=production
-EXPOSE 3000
 
+ENV NODE_ENV=production
 CMD ["node", "server/src/index.js"]
