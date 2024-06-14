@@ -6,4 +6,4 @@ services:
     ports:
       - "35003:3300"
     environment:
-      environment: 3300
+      PORT: 3300
